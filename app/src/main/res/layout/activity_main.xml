@@ -55,10 +55,12 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/llExit"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_weight="1"
-                android:orientation="horizontal"></LinearLayout>
+                android:layout_height="150dp"
+                android:orientation="horizontal">
+
+            </LinearLayout>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/rvMain4"
@@ -72,13 +74,13 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_weight="1">
+                android:layout_height="100dp">
 
                 <ImageView
                     android:id="@+id/image"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
+                    android:contentDescription="@string/add_park_item_content_description"
                     android:scaleType="fitXY">
 
                 </ImageView>
@@ -97,9 +99,10 @@
             </androidx.recyclerview.widget.RecyclerView>
 
             <LinearLayout
+                android:id="@+id/llExit2"
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:layout_weight="1" />
+                android:layout_height="100dp"
+                android:orientation="horizontal" />
         </LinearLayout>
 
     </LinearLayout>
