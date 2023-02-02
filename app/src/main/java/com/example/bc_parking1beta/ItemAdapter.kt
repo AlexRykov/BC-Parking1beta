@@ -20,6 +20,7 @@ class ItemAdapter (private val itemModel: List<Int>) : RecyclerView.Adapter<Item
             num1.text = itemModel[position].toString()
 
 
+
 //          HERE I CAN SET CARDViEW CLICK LISTENER !!!
             var tick = 0
             cvMain.setOnClickListener{
