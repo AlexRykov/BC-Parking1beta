@@ -20,7 +20,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.apply {
-            rvMain.adapter=MainAdapter(SampleData.collections)
+            rvMain1.adapter=ItemAdapter(listOf(1,2,3,4,5,6,7,8,9,10,11,12,13))
+            rvMain2.adapter=ItemAdapter(listOf(1,2,3,4,5,6,7,8,9,10,11,12,13))
+            rvMain3.adapter=ItemAdapter(listOf(1,2,3,4,5,6,7,8,9,10,11,12,13))
+            rvMain4.adapter=ItemAdapter(listOf(1,2,3))
+            rvMain41.adapter=ItemAdapter(listOf(1,2,3,4))
         }
     }
 }

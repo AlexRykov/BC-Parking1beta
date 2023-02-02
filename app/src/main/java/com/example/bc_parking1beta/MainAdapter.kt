@@ -16,13 +16,11 @@ class MainAdapter(private val collection: List<MainModel>) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: CollectionViewHolder, position: Int) {
         holder.binding.apply {
-            val collection = collection[position]
-            val itemAdapter = ItemAdapter(collection.itemModels)
-            rvParentItem1.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
-            rvParentItem2.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
-            rvParentItem3.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
-            rvParentItem41.adapter = ItemAdapter(listOf(1,2,3))
-            rvParentItem42.adapter = ItemAdapter(listOf(1,2,3,4))
+//            rvParentItem.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
+//            rvParentItem2.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
+//            rvParentItem3.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
+//            rvParentItem41.adapter = ItemAdapter(listOf(1,2,3))
+//            rvParentItem42.adapter = ItemAdapter(listOf(1,2,3,4))
         }
     }
 

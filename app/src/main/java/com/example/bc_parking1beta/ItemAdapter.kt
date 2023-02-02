@@ -29,7 +29,7 @@ class ItemAdapter (private val itemModel: List<Int>) : RecyclerView.Adapter<Item
                     num1.background.setTint(Color.RED)
                     tick ++
                 } else {
-                    num1.background.setTint(Color.GREEN)
+                    num1.background.setTint(Color.parseColor("#00C853"))
                     tick ++
                 }
             }
