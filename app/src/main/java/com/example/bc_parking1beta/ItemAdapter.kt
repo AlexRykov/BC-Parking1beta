@@ -8,8 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.bc_parking.R
 import com.example.bc_parking.databinding.ItemParkBinding
 
-class ItemAdapter (private val itemModel: List<ItemModel>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
-    private lateinit var binding: ItemParkBinding
+class ItemAdapter (private val itemModel: List<Int>) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_park,parent,false)
@@ -18,7 +17,7 @@ class ItemAdapter (private val itemModel: List<ItemModel>) : RecyclerView.Adapte
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         holder.binding.apply {
-            num1.text = itemModel[position].imageUrl.toString()
+            num1.text = itemModel[position].toString()
 
 
 //          HERE I CAN SET CARDViEW CLICK LISTENER !!!
@@ -33,8 +32,6 @@ class ItemAdapter (private val itemModel: List<ItemModel>) : RecyclerView.Adapte
                     num1.background.setTint(Color.GREEN)
                     tick ++
                 }
-
-
             }
         }
     }

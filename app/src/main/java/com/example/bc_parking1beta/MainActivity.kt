@@ -21,15 +21,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.apply {
             rvMain.adapter=MainAdapter(SampleData.collections)
-
-            binding1.num1.setBackgroundColor(Color.BLACK)
-            binding1.num1.setTextColor(Color.GREEN)
         }
-
-            binding1.num1.setBackgroundColor(Color.BLACK)
-        binding1.num1.setTextColor(Color.GREEN)
-
-
     }
-
 }

@@ -8,8 +8,6 @@ import com.example.bc_parking.R
 import com.example.bc_parking.databinding.ParentItemBinding
 
 class MainAdapter(private val collection: List<MainModel>) : RecyclerView.Adapter<MainAdapter.CollectionViewHolder>() {
-    private lateinit var binding: ParentItemBinding
-
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CollectionViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.parent_item, parent, false)
@@ -19,9 +17,12 @@ class MainAdapter(private val collection: List<MainModel>) : RecyclerView.Adapte
     override fun onBindViewHolder(holder: CollectionViewHolder, position: Int) {
         holder.binding.apply {
             val collection = collection[position]
-            tvGenreMovie.text =collection.title
             val itemAdapter = ItemAdapter(collection.itemModels)
-            rvParentItem.adapter = itemAdapter
+            rvParentItem1.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
+            rvParentItem2.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
+            rvParentItem3.adapter = ItemAdapter(listOf(1,2,3,4,5,6,7,8))
+            rvParentItem41.adapter = ItemAdapter(listOf(1,2,3))
+            rvParentItem42.adapter = ItemAdapter(listOf(1,2,3,4))
         }
     }
 
@@ -29,6 +30,5 @@ class MainAdapter(private val collection: List<MainModel>) : RecyclerView.Adapte
 
     inner class CollectionViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val binding = ParentItemBinding.bind(itemView)
-
     }
 }
