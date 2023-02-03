@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="com.example.bc_parking1beta.fragments.WelcomeFragment"
+        android:label="WelcomeFragment" >
+        <action
+            android:id="@+id/action_welcomeFragment_to_outsideParkingFragment"
+            app:destination="@id/outsideParkingFragment1" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_outsideParkingFragment2"
+            app:destination="@id/outsideParkingFragment2" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_parking2ndLvlFragment"
+            app:destination="@id/parking2ndLvlFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/outsideParkingFragment1"
+        android:name="com.example.bc_parking1beta.fragments.OutsideParkingFragment1"
+        android:label="OutsideParkingFragment1" />
+    <fragment
+        android:id="@+id/outsideParkingFragment2"
+        android:name="com.example.bc_parking1beta.fragments.OutsideParkingFragment2"
+        android:label="OutsideParkingFragment2" />
+    <fragment
+        android:id="@+id/parking2ndLvlFragment"
+        android:name="com.example.bc_parking1beta.fragments.Parking2ndLvlFragment"
+        android:label="Parking2ndLvlFragment" />
+</navigation>

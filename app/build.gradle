@@ -36,6 +36,7 @@ android {
     namespace 'com.example.bc_parking'
     buildFeatures{
         viewBinding true
+        dataBinding true
     }
 }
 
