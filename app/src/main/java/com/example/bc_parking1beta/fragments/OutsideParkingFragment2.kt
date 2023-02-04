@@ -27,17 +27,17 @@ class OutsideParkingFragment2 : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding.apply {
-            rvOutsideParking211.adapter = ItemAdapter(listOf(1))
-            rvOutsideParking212.adapter =
-                ItemAdapter(listOf(1))
-            rvOutsideParking213.adapter =
-                ItemAdapter(listOf(1))
-            rvOutsideParking22.adapter = ItemAdapter(listOf(44, 43, 42))
-            rvOutsideParking231.adapter = ItemAdapter(listOf(41))
-            rvOutsideParking232.adapter = ItemAdapter(listOf(41))
-            rvOutsideParking233.adapter = ItemAdapter(listOf(4))
-        }
+//        binding.apply {
+//            rvOutsideParking211.adapter = ItemAdapter(listOf(1))
+//            rvOutsideParking212.adapter =
+//                ItemAdapter(listOf(1))
+//            rvOutsideParking213.adapter =
+//                ItemAdapter(listOf(1))
+//            rvOutsideParking22.adapter = ItemAdapter(listOf(44, 43, 42))
+//            rvOutsideParking231.adapter = ItemAdapter(listOf(41))
+//            rvOutsideParking232.adapter = ItemAdapter(listOf(41))
+//            rvOutsideParking233.adapter = ItemAdapter(listOf(4))
+//        }
 
     }
 //    private fun launchChooseLevelFragment() {

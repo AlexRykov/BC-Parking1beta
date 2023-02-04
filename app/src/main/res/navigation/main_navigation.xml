@@ -21,7 +21,11 @@
     <fragment
         android:id="@+id/outsideParkingFragment1"
         android:name="com.example.bc_parking1beta.fragments.OutsideParkingFragment1"
-        android:label="OutsideParkingFragment1" />
+        android:label="OutsideParkingFragment1" >
+        <action
+            android:id="@+id/action_outsideParkingFragment1_to_parkItemFragment"
+            app:destination="@id/parkItemFragment" />
+    </fragment>
     <fragment
         android:id="@+id/outsideParkingFragment2"
         android:name="com.example.bc_parking1beta.fragments.OutsideParkingFragment2"
@@ -30,4 +34,8 @@
         android:id="@+id/parking2ndLvlFragment"
         android:name="com.example.bc_parking1beta.fragments.Parking2ndLvlFragment"
         android:label="Parking2ndLvlFragment" />
+    <fragment
+        android:id="@+id/parkItemFragment"
+        android:name="com.example.bc_parking1beta.fragments.ParkItemFragment"
+        android:label="ParkItemFragment" />
 </navigation>

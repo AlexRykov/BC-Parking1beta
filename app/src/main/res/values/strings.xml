@@ -44,4 +44,10 @@
     <string name="date_to">date_to</string>
     <string name="error_input_name">Invalid string</string>
     <string name="error_input_count">Invalid count</string>
+    <string name="fragment_date_from">date_from</string>
+    <string name="fragment_date_to">date_to</string>
+    <string name="fragment_save">save</string>
+    <string name="fragment_clear">Clear</string>
+    <string name="fragment_firm">firm</string>
+    <string name="fragment_fio">FIO</string>
 </resources>
