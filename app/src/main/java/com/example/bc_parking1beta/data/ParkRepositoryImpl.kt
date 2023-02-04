@@ -8,18 +8,24 @@ import com.example.bc_parking1beta.domain.ParkRepository
 object ParkRepositoryImpl : ParkRepository {
 
     private val parkListLD = MutableLiveData<List<ParkItem>>()
+
     private val parkList = sortedSetOf<ParkItem>({ o1, o2 -> o1.id.compareTo(o2.id) })
+//    This TreeSet for sorting list.
+//    We compare 1st element with 2nd, to edited element don't fall in the end of list
+//    before it was ->
+//    private val parkList = mutableListOf<ParkItem>()
 
     private var autoIncrementId = 0
 
     init {
-        for (i in 0 until 10) {
+        for (i in 0 until 20) {
             val item = ParkItem(
                 "Name $i",
                 "firm $i",
                 "date_from",
                 "date_to",
-                ""
+                "$i",
+                true
             )
             addParkItem(item)
         }

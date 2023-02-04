@@ -1,5 +1,6 @@
 package com.example.bc_parking1beta
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bc_parking1beta.data.ParkRepositoryImpl
 import com.example.bc_parking1beta.domain.*
@@ -18,8 +19,8 @@ class MainViewModel : ViewModel() {
         deleteParkItemUseCase.deleteShopItem(parkItem)
     }
 
-//    fun changeEnableState(parkItem: ParkItem) {
-//        val newItem = parkItem.copy(enabled = !ParkItem.enabled)
-//        editParkItemUseCase.editParkItem(newItem)
-//    }
+    fun changeEnableState(parkItem: ParkItem) {
+        val newItem = parkItem.copy(enabled = !parkItem.enabled)
+        editParkItemUseCase.editParkItem(newItem)
+    }
 }

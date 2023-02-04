@@ -6,6 +6,7 @@ data class ParkItem(
     val dateFrom: String,
     val dateTo: String,
     val count: String,
+    val enabled: Boolean,
     var id: Int = UNDEFINED_ID
 ) {
 
