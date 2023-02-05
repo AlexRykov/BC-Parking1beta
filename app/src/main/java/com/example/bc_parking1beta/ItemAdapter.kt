@@ -4,13 +4,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bc_parking.R
 import com.example.bc_parking.databinding.ItemParkBinding
 import com.example.bc_parking1beta.domain.ParkItem
 
-class ItemAdapter(private val itemModel: List<ParkItem>) :
-    RecyclerView.Adapter<ItemAdapter.ItemViewHolder>() {
+class ItemAdapter(val item: List<ParkItem>): ListAdapter<ParkItem, ItemAdapter.ItemViewHolder>(ParkItemDiffCallback()){
 
     var onParkItemClickListener: ((ParkItem) -> Unit)? = null
     var itemModels: List<ParkItem> = emptyList()
@@ -18,18 +18,23 @@ class ItemAdapter(private val itemModel: List<ParkItem>) :
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_park, parent, false)
-
-
-        return ItemViewHolder(view)
+        val viewHolder = ItemViewHolder(view)
+        viewHolder.itemView.setOnClickListener {
+            onParkItemClickListener?.invoke(getItem(viewHolder.adapterPosition))
+        }
+        return viewHolder
 
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-//        val items = itemModels[position]
+        val parkItem = getItem(position)
         holder.binding.apply {
-            num1.text = itemModel[position].toString()
+//            num1.text = parkItem.toString()
 
-            val viewHolder = ItemViewHolder(holder.itemView)
+            holder.itemView.setOnClickListener{
+                onParkItemClickListener?.invoke(parkItem)
+            }
+
 //            viewHolder.itemView.setOnClickListener{
 //                onParkItemClickListener?.invoke(getItemViewType(R.layout.item_park)(viewHolder.adapterPosition)
 //            }
@@ -50,7 +55,7 @@ class ItemAdapter(private val itemModel: List<ParkItem>) :
         }
     }
 
-    override fun getItemCount() = itemModel.size
+    override fun getItemCount() = itemModels.size
 //    private fun launchParking2ndLvlFragment() {
 //        findNavController().navigate(R.id.action_welcomeFragment_to_parking2ndLvlFragment)
 //    }
