@@ -5,7 +5,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.core.content.ContextCompat
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.bc_parking.R
 import com.example.bc_parking.databinding.ItemParkBinding
@@ -17,10 +16,18 @@ class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
         set(value) {
             field = value
             notifyDataSetChanged()
+
         }
+    var onParkItemLongClickListener: ((ParkItem) -> Unit)? = null
+    var onParkItemClickListener: ((ParkItem) -> Unit)? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_park, parent, false)
+        val layout = when(viewType){
+            VIEW_TYPE_ENABLED -> R.layout.item_park
+            VIEW_TYPE_DISABLED -> R.layout.item_park_disabled
+            else -> throw RuntimeException("Unknown View type $viewType")
+        }
+        val view = LayoutInflater.from(parent.context).inflate(layout, parent, false)
         val viewHolder = ItemViewHolder(view)
 
         return viewHolder
@@ -29,25 +36,33 @@ class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 
     override fun onBindViewHolder(viewHolder: ItemViewHolder, position: Int) {
         val parkItem = parkList[position]
-        val status = if (parkItem.enabled) {
-            "Active"
-        } else {
-            "Not active"
-        }
+
+//         CREATE invoke method that can be Realised in Fragment in SetupRecyclerView
         viewHolder.itemView.setOnLongClickListener {
+            onParkItemLongClickListener?.invoke(parkItem)
             true
         }
-        if (parkItem.enabled) {
-            viewHolder.tv_name.text = "${parkItem.name} $status"
-            viewHolder.tvCount.text = parkItem.count.toString()
-            viewHolder.tv_name.setTextColor(ContextCompat.getColor(viewHolder.itemView.context, android.R.color.holo_red_light))
+        viewHolder.itemView.setOnClickListener {
+            onParkItemClickListener?.invoke(parkItem)
         }
+        viewHolder.tv_name.text =parkItem.name
+        viewHolder.tvCount.text = parkItem.count
 
     }
 
     override fun getItemCount(): Int {
         return  parkList.size
     }
+
+    override fun getItemViewType(position: Int): Int {
+        val item = parkList[position]
+        return if (item.enabled){
+            VIEW_TYPE_ENABLED
+        } else{
+            VIEW_TYPE_DISABLED
+        }
+    }
+
     override fun onViewRecycled(viewHolder: ItemViewHolder) {
         super.onViewRecycled(viewHolder)
         viewHolder.tv_name.text = ""
@@ -75,4 +90,14 @@ class ItemAdapter: RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 //        }
     }
 
+    companion object {
+
+        const val VIEW_TYPE_ENABLED = 100
+        const val VIEW_TYPE_DISABLED = 101
+        const val MAX_POOL_SIZE = 5
+    }
+
+    interface OnParkItemLongClickListener {
+        fun onParkItemLongClick(parkItem: ParkItem)
+    }
 }

@@ -2,6 +2,7 @@ package com.example.bc_parking1beta.fragments
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,6 +56,27 @@ class OutsideParkingFragment1 : Fragment() {
         val rvOutside1List = binding.rvOutsideParking11
         rvOutsideParking11Adapter = ItemAdapter()
         rvOutside1List.adapter = rvOutsideParking11Adapter
+
+//        REALISE Invoke method from Adapter HERE
+        rvOutsideParking11Adapter.onParkItemLongClickListener = {
+            viewModel.changeEnableState(it)
+        }
+        rvOutsideParking11Adapter.onParkItemClickListener = {
+//        "Intent to ParkItemFragment"
+//            launchParkItemFragment()
+            Log.d("PARK", it.toString())
+        }
+
+//   SETUP MAX POOL SIZE of elements in rv. Must be Deleted    !!!
+
+        rvOutside1List.recycledViewPool.setMaxRecycledViews(
+            ItemAdapter.VIEW_TYPE_ENABLED,
+            ItemAdapter.MAX_POOL_SIZE
+        )
+        rvOutside1List.recycledViewPool.setMaxRecycledViews(
+            ItemAdapter.VIEW_TYPE_DISABLED,
+            ItemAdapter.MAX_POOL_SIZE
+        )
     }
 
 //    override fun onEditingFinished() {

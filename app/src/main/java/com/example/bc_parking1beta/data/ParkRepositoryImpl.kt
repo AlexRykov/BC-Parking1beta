@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.bc_parking1beta.domain.ParkItem
 import com.example.bc_parking1beta.domain.ParkRepository
+import kotlin.random.Random
 
 object ParkRepositoryImpl : ParkRepository {
 
@@ -24,8 +25,8 @@ object ParkRepositoryImpl : ParkRepository {
                 "firm $i",
                 "date_from",
                 "date_to",
-                "$i",
-                true
+                count = "$i",
+                enabled = Random.nextBoolean()
             )
             addParkItem(item)
         }
