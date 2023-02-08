@@ -1,6 +1,7 @@
 package com.example.bc_parking1beta.presentation
 
 //import android.app.Fragment
+import android.content.Context
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -21,7 +22,7 @@ class ParkItemFragment : Fragment() {
 
 
     private lateinit var viewModel: ParkItemViewModel
-//    private lateinit var onEditingFinishedListener: OnEditingFinishedListener
+    private lateinit var onEditingFinishedListener: OnEditingFinishedListener
 
     private lateinit var tilName: TextInputLayout
     private lateinit var tilFirm: TextInputLayout
@@ -36,21 +37,21 @@ class ParkItemFragment : Fragment() {
     private lateinit var buttonSave: Button
     private lateinit var buttonClear: Button
 
-//    private var screenMode = MODE_UNKNOWN
+    private var screenMode = MODE_UNKNOWN
     private var parkItemId = ParkItem.UNDEFINED_ID
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         parseParams()
     }
 
-//    override fun onAttach(context: Context) {
-//        super.onAttach(context)
-//        if (context is OnEditingFinishedListener) {
-//            onEditingFinishedListener = context
-//        } else {
-//            throw RuntimeException("Activity does not implement OnEditingFinishedListener")
-//        }
-//    }
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (context is OnEditingFinishedListener) {
+            onEditingFinishedListener = context
+        } else {
+            throw RuntimeException("Activity does not implement OnEditingFinishedListener")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -104,7 +105,7 @@ class ParkItemFragment : Fragment() {
             }
             tilDateTo.error = message
         }
-        viewModel.errorInputCount.observe(viewLifecycleOwner) {
+        viewModel.errorInputAbout.observe(viewLifecycleOwner) {
             val message = if (it) {
                 getString(R.string.error_input_count)
             } else {
@@ -119,12 +120,12 @@ class ParkItemFragment : Fragment() {
 
     }
 
-//    private fun launchRightMode() {
-//        when (screenMode) {
-//            MODE_EDIT -> launchEditMode()
-//            MODE_ADD -> launchAddMode()
-//        }
-//    }
+    private fun launchRightMode() {
+        when (screenMode) {
+            MODE_EDIT -> launchEditMode()
+            MODE_ADD -> launchAddMode()
+        }
+    }
 
     private fun addTextChangeListeners() {
         etName.addTextChangedListener(object : TextWatcher {
@@ -191,7 +192,7 @@ class ParkItemFragment : Fragment() {
             etFirm.setText(it.firm)
             etDateFrom.setText(it.dateFrom)
             etDateTo.setText(it.dateTo)
-            etAbout.setText(it.count)
+            etAbout.setText(it.about)
         }
         buttonSave.setOnClickListener {
             viewModel.editParkItem(
@@ -199,8 +200,7 @@ class ParkItemFragment : Fragment() {
                 etFirm.text?.toString(),
                 etDateFrom.text?.toString(),
                 etDateTo.text?.toString(),
-                etAbout.text?.toString(),
-                enabled = true
+                etAbout.text?.toString()
             )
         }
         buttonClear.setOnClickListener {
@@ -213,35 +213,35 @@ class ParkItemFragment : Fragment() {
         }
     }
 
-//    private fun launchAddMode() {
-//        buttonSave.setOnClickListener {
-//            viewModel.addParkItem(
-//                etName.text?.toString(),
-//                etFirm.text?.toString(),
-//                etDateFrom.text?.toString(),
-//                etDateTo.text?.toString(),
-//                etCount.text?.toString(),
-//                enabled = true
-//            )
-//        }
-//    }
+    private fun launchAddMode() {
+        buttonSave.setOnClickListener {
+            viewModel.addParkItem(
+                etName.text?.toString(),
+                etFirm.text?.toString(),
+                etDateFrom.text?.toString(),
+                etDateTo.text?.toString(),
+                etAbout.text?.toString(),
+                enabled = true
+            )
+        }
+    }
 
     private fun parseParams() {
         val args = requireArguments()
-//        if (!args.containsKey(SCREEN_MODE)) {
-//            throw RuntimeException("Param screen mode is absent")
-//        }
-//        val mode = args.getString(SCREEN_MODE)
-//        if (mode != MODE_EDIT && mode != MODE_ADD) {
-//            throw RuntimeException("Unknown screen mode $mode")
-//        }
-//        screenMode = mode
-//        if (screenMode == MODE_EDIT) {
-//            if (!args.containsKey(PARK_ITEM_ID)) {
-//                throw RuntimeException("Param shop item id is absent")
-//            }
+        if (!args.containsKey(SCREEN_MODE)) {
+            throw RuntimeException("Param screen mode is absent")
+        }
+        val mode = args.getString(SCREEN_MODE)
+        if (mode != MODE_EDIT && mode != MODE_ADD) {
+            throw RuntimeException("Unknown screen mode $mode")
+        }
+        screenMode = mode
+        if (screenMode == MODE_EDIT) {
+            if (!args.containsKey(PARK_ITEM_ID)) {
+                throw RuntimeException("Param shop item id is absent")
+            }
             parkItemId = args.getInt(PARK_ITEM_ID, ParkItem.UNDEFINED_ID)
-//        }
+        }
     }
 
     private fun initViews(view: View) {
@@ -259,35 +259,35 @@ class ParkItemFragment : Fragment() {
         buttonClear = view.findViewById(R.id.clear_button)
     }
 
-//    interface OnEditingFinishedListener {
-//        fun onEditingFinished()
-//    }
+    interface OnEditingFinishedListener {
+        fun onEditingFinished()
+    }
 
     companion object {
 
-//        private const val SCREEN_MODE = "extra_mode"
+        private const val SCREEN_MODE = "extra_mode"
         private const val TEXT = "clear"
         private const val PARK_ITEM_ID = "extra_park_item_id"
-//        private const val MODE_EDIT = "mode_edit"
-//        private const val MODE_ADD = "mode_add"
-//        private const val MODE_UNKNOWN = ""
+        private const val MODE_EDIT = "mode_edit"
+        private const val MODE_ADD = "mode_add"
+        private const val MODE_UNKNOWN = ""
 
-//
-//        fun newInstanceAddItem(): ParkItemFragment {
-//            return ParkItemFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(SCREEN_MODE, MODE_ADD)
-//                }
-//            }
-//        }
-//
-//        fun newInstanceEditItem(parkItemID: Int): ParkItemFragment {
-//            return ParkItemFragment().apply {
-//                arguments = Bundle().apply {
-//                    putString(SCREEN_MODE, MODE_EDIT)
-//                    putInt(PARK_ITEM_ID, parkItemID)
-//                }
-//            }
-//        }
+
+        fun newInstanceAddItem(): ParkItemFragment {
+            return ParkItemFragment().apply {
+                arguments = Bundle().apply {
+                    putString(SCREEN_MODE, MODE_ADD)
+                }
+            }
+        }
+
+        fun newInstanceEditItem(parkItemID: Int): ParkItemFragment {
+            return ParkItemFragment().apply {
+                arguments = Bundle().apply {
+                    putString(SCREEN_MODE, MODE_EDIT)
+                    putInt(PARK_ITEM_ID, parkItemID)
+                }
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main_navigation"
     app:startDestination="@id/welcomeFragment">
 
@@ -25,6 +26,9 @@
         <action
             android:id="@+id/action_outsideParkingFragment1_to_parkItemFragment"
             app:destination="@id/parkItemFragment" />
+        <action
+            android:id="@+id/action_outsideParkingFragment1_to_parkItemActivity"
+            app:destination="@id/parkItemActivity" />
     </fragment>
     <fragment
         android:id="@+id/outsideParkingFragment2"
@@ -38,4 +42,9 @@
         android:id="@+id/parkItemFragment"
         android:name="com.example.bc_parking1beta.presentation.ParkItemFragment"
         android:label="ParkItemFragment" />
+    <activity
+        android:id="@+id/parkItemActivity"
+        android:name="com.example.bc_parking1beta.presentation.ParkItemActivity"
+        android:label="activity_park_item"
+        tools:layout="@layout/activity_park_item" />
 </navigation>

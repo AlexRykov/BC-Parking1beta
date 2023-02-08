@@ -5,5 +5,5 @@
     android:id="@+id/p_item_container_item_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.bc_parking1beta.fragments.ParkItemActivity"
+    tools:context="com.example.bc_parking1beta.presentation.ParkItemActivity"
     tools:layout="@layout/fragment_park_item" />

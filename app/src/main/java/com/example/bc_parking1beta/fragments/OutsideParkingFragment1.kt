@@ -1,6 +1,7 @@
 package com.example.bc_parking1beta.fragments
 
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -17,6 +18,7 @@ import com.example.bc_parking.databinding.OutsideParking1Binding
 import com.example.bc_parking1beta.ItemAdapter
 import com.example.bc_parking1beta.MainViewModel
 import com.example.bc_parking1beta.domain.ParkItem
+import com.example.bc_parking1beta.presentation.ParkItemActivity
 
 class OutsideParkingFragment1 : Fragment() {
 
@@ -66,7 +68,13 @@ class OutsideParkingFragment1 : Fragment() {
         }
         rvOutsideParking11Adapter.onParkItemClickListener = {
 //        "Intent to ParkItemFragment"
-            launchParkItemFragment()
+//            launchParkItemFragment()
+            val intent = this@OutsideParkingFragment1.context?.let { it1 ->
+                ParkItemActivity.newIntentEditItem(
+                    it1, it.id)
+            }
+
+            startActivity(intent)
             Toast.makeText(this.requireContext(), "CLICK", Toast.LENGTH_SHORT).show()
             Log.d("PARK", it.toString())
         }
@@ -89,7 +97,7 @@ class OutsideParkingFragment1 : Fragment() {
 
 
     private fun launchParkItemFragment() {
-        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemFragment)
+        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemActivity)
     }
 
     override fun onDestroyView() {

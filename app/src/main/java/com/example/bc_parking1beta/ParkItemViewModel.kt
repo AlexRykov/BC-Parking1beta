@@ -32,9 +32,9 @@ class ParkItemViewModel : ViewModel(){
     val errorInputDateTo: LiveData<Boolean>
         get() = _errorInputDateTo
 
-    private val _errorInputCount = MutableLiveData<Boolean>()
-    val errorInputCount: LiveData<Boolean>
-        get() = _errorInputCount
+    private val _errorInputAbout = MutableLiveData<Boolean>()
+    val errorInputAbout: LiveData<Boolean>
+        get() = _errorInputAbout
 
     private val _parkItem = MutableLiveData<ParkItem>()
     val parkItem: LiveData<ParkItem>
@@ -54,7 +54,7 @@ class ParkItemViewModel : ViewModel(){
         inputFirm: String?,
         inputDateFrom: String?,
         inputDateTo: String?,
-        inputCount: String?,
+        inputAbout: String?,
         enabled: Boolean
 
     ) {
@@ -62,11 +62,11 @@ class ParkItemViewModel : ViewModel(){
         val firm = parseName(inputFirm)
         val dateFrom = parseName(inputDateFrom)
         val dateTo = parseName(inputDateTo)
-        val count = parseName(inputCount)
+        val about = parseName(inputAbout)
 
-        val fieldsValid = validateInput(name, firm, dateFrom, dateTo, count)
+        val fieldsValid = validateInput(name, firm, dateFrom, dateTo, about)
         if (fieldsValid) {
-            val parkItem = ParkItem(name, firm, dateFrom, dateTo, count, enabled)
+            val parkItem = ParkItem(name, firm, dateFrom, dateTo, about, enabled)
             addParkItemUseCase.addParkItem(parkItem)
             finishWork()
         }
@@ -77,15 +77,15 @@ class ParkItemViewModel : ViewModel(){
         inputFirm: String?,
         inputDateFrom: String?,
         inputDateTo: String?,
-        inputCount: String?,
-        enabled: Boolean
+        inputAbout: String?
     ) {
         val name = parseName(inputName)
         val firm = parseName(inputFirm)
         val dateFrom = parseName(inputDateFrom)
         val dateTo = parseName(inputDateTo)
-        val count = parseName(inputCount)
-        val fieldsValid = validateInput(name, firm, dateFrom, dateTo, count)
+        val about = parseName(inputAbout)
+
+        val fieldsValid = validateInput(name, firm, dateFrom, dateTo, about)
         if (fieldsValid) {
             _parkItem.value?.let {
                 val item = it.copy(
@@ -93,8 +93,7 @@ class ParkItemViewModel : ViewModel(){
                     firm = firm,
                     dateFrom = dateFrom,
                     dateTo = dateTo,
-                    count = count,
-                    enabled
+                    about = about
                 )
                 editParkItemUseCase.editParkItem(item)
                 finishWork()
@@ -106,20 +105,20 @@ class ParkItemViewModel : ViewModel(){
         return inputName?.trim() ?: ""
     }
 
-    private fun parseCount(inputCount: String?): Int {
-        return try {
-            inputCount?.trim()?.toInt() ?: 0
-        } catch (e: Exception) {
-            0
-        }
-    }
+//    private fun parseCount(inputCount: String?): Int {
+//        return try {
+//            inputCount?.trim()?.toInt() ?: 0
+//        } catch (e: Exception) {
+//            0
+//        }
+//    }
 
     private fun validateInput(
         name: String,
         firm: String,
         dateFrom: String,
         dateTo: String,
-        count: String
+        about: String
     ): Boolean {
         var result = true
         if (name.isBlank()) {
@@ -138,8 +137,8 @@ class ParkItemViewModel : ViewModel(){
             _errorInputDateTo.value = true
             result = false
         }
-        if (count.isBlank()) {
-            _errorInputCount.value = true
+        if (about.isBlank()) {
+            _errorInputAbout.value = true
             result = false
         }
         return result
@@ -162,7 +161,7 @@ class ParkItemViewModel : ViewModel(){
     }
 
     fun resetErrorInputCount() {
-        _errorInputCount.value = false
+        _errorInputAbout.value = false
     }
 
     private fun finishWork() {

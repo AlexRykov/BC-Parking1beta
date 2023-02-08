@@ -25,7 +25,7 @@ object ParkRepositoryImpl : ParkRepository {
                 "firm $i",
                 "date_from",
                 "date_to",
-                count = "$i",
+                about = "$i",
                 enabled = Random.nextBoolean()
             )
             addParkItem(item)
