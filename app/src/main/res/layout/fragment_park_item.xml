@@ -11,10 +11,10 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="103dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toTopOf="@id/til_count"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed">
@@ -23,12 +23,12 @@
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/name_hint"
+            android:hint="@string/fragment_fio"
             android:inputType="textCapWords" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_count"
+        android:id="@+id/til_firm"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
@@ -39,10 +39,10 @@
         app:layout_constraintTop_toBottomOf="@+id/til_name">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_count"
+            android:id="@+id/et_firm"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/count_hint"
+            android:hint="@string/fragment_firm"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -56,28 +56,92 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.462"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_count">
+        app:layout_constraintTop_toBottomOf="@+id/til_firm">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_date_from"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="@string/date_from"
             android:inputType="number"
-            app:layout_constraintTop_toBottomOf="@+id/til_count"
+            app:layout_constraintTop_toBottomOf="@+id/til_firm"
             tools:layout_editor_absoluteX="9dp" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
-        android:id="@+id/save_button"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_date_to"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="320dp"
-        android:text="@string/save_btn"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_date_from">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_date_to"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/date_to"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@+id/til_date_from"
+            tools:layout_editor_absoluteX="9dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_about"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_date_to">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_about"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:hint="@string/fragment_about"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@+id/til_date_to"
+            tools:layout_editor_absoluteX="9dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_count" />
+        app:layout_constraintTop_toBottomOf="@+id/til_about"
+        app:layout_constraintVertical_bias="0.789">
+
+        <Button
+            android:id="@+id/save_button"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="100dp"
+            android:backgroundTint="#A5D6A7"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:text="@string/save_btn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/clear_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:backgroundTint="#EF9A9A"
+            android:text="@string/fragment_clear" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
