@@ -6,6 +6,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.lifecycle.ViewModelProvider
@@ -47,9 +48,11 @@ class OutsideParkingFragment1 : Fragment() {
         setupRecyclerView()
         viewModel = ViewModelProvider(this@OutsideParkingFragment1)[MainViewModel::class.java]
         viewModel.parkList.observe(viewLifecycleOwner) {
-            rvOutsideParking11Adapter.parkList = it
+//            give list of items to Adapter
+            rvOutsideParking11Adapter.submitList(it)
         }
-
+//          Get item position in List with fun .currentList
+//          val item = ItemAdapter.currentList[viewHolder.adapterPosition]
     }
 
     private fun setupRecyclerView() {
@@ -63,7 +66,8 @@ class OutsideParkingFragment1 : Fragment() {
         }
         rvOutsideParking11Adapter.onParkItemClickListener = {
 //        "Intent to ParkItemFragment"
-//            launchParkItemFragment()
+            launchParkItemFragment()
+            Toast.makeText(this.requireContext(), "CLICK", Toast.LENGTH_SHORT).show()
             Log.d("PARK", it.toString())
         }
 
@@ -84,7 +88,7 @@ class OutsideParkingFragment1 : Fragment() {
 //    }
 
 
-    fun launchParkItemFragment() {
+    private fun launchParkItemFragment() {
         findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemFragment)
     }
 

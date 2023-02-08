@@ -36,6 +36,6 @@
         android:label="Parking2ndLvlFragment" />
     <fragment
         android:id="@+id/parkItemFragment"
-        android:name="com.example.bc_parking1beta.fragments.ParkItemFragment"
+        android:name="com.example.bc_parking1beta.presentation.ParkItemFragment"
         android:label="ParkItemFragment" />
 </navigation>

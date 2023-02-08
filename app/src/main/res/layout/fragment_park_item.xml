@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.bc_parking1beta.fragments.ParkItemActivity">
-
+    tools:context="com.example.bc_parking1beta.presentation.ParkItemFragment">
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/til_name"
@@ -13,8 +12,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@id/til_firm"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintBottom_toTopOf="@id/til_count"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,70 +23,7 @@
             android:id="@+id/et_name"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="@string/fragment_fio"
-            android:inputType="textCapWords" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_firm"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/til_dateFrom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_name">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_firm"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/fragment_firm"
-            android:inputType="textCapWords" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_dateFrom"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/til_dateTo"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_firm">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_dateFrom"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/fragment_date_from"
-            android:inputType="textCapWords" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_dateTo"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/til_count"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_dateFrom">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/et_dateTo"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:hint="@string/fragment_date_to"
+            android:hint="@string/name_hint"
             android:inputType="textCapWords" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -96,12 +32,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="4dp"
         android:layout_marginEnd="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/save_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/til_dateTo">
+        app:layout_constraintTop_toBottomOf="@+id/til_name">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_count"
@@ -111,25 +46,38 @@
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_date_from"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_count">
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_date_from"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="@string/date_from"
+            android:inputType="number"
+            app:layout_constraintTop_toBottomOf="@+id/til_count"
+            tools:layout_editor_absoluteX="9dp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
     <Button
         android:id="@+id/save_button"
-        android:layout_width="211dp"
-        android:layout_height="47dp"
-        android:text="@string/fragment_save"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="320dp"
+        android:text="@string/save_btn"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_count" />
 
-    <Button
-        android:id="@+id/clear_button"
-        style="@style/Widget.Material3.Button.IconButton.Outlined"
-        android:layout_width="126dp"
-        android:layout_height="48dp"
-        android:text="@string/fragment_clear"
-        android:textColor="#546E7A"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.891"
-        app:layout_constraintStart_toEndOf="@+id/save_button" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
