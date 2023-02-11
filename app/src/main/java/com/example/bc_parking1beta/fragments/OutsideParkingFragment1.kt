@@ -91,13 +91,13 @@ class OutsideParkingFragment1 : Fragment() {
     }
 
 //    override fun onEditingFinished() {
-//        TODO("Not yet implemented")
+//        "TODO("Not yet implemented")  "
 //    }
 
 
-    private fun launchParkItemFragment() {
-        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemActivity)
-    }
+//    private fun launchParkItemFragment() {
+//        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemFragment)
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()
