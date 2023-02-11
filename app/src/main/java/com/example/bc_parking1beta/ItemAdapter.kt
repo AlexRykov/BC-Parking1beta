@@ -37,6 +37,7 @@ class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback())
             onParkItemClickListener?.invoke(parkItem)
         }
         viewHolder.tv_name.text =parkItem.name
+        viewHolder.tv_date_to.text =parkItem.dateTo
         viewHolder.tvCount.text = parkItem.about
 
     }

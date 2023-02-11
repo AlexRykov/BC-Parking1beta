@@ -9,6 +9,6 @@ class ParkItemViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
     val tvName: TextView = view.findViewById<TextView>(R.id.tv_name)
     val tvFirm: TextView = view.findViewById<TextView>(R.id.tv_firm)
     val tvDateFrom: TextView = view.findViewById<TextView>(R.id.tv_date_from)
-    val tvDateTo: TextView = view.findViewById<TextView>(R.id.tv_date_to)
+    val tvDateTo: TextView = view.findViewById<TextView>(R.id.tv_date_to_main)
     val tvCount: TextView = view.findViewById<TextView>(R.id.num1)
 }

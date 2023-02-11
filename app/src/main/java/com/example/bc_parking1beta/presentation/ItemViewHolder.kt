@@ -12,7 +12,7 @@ class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val tv_name: TextView = itemView.findViewById<TextView>(R.id.tv_name)
     val tv_firm: TextView = itemView.findViewById<TextView>(R.id.tv_firm)
     val tv_date_from: TextView = itemView.findViewById<TextView>(R.id.tv_date_from)
-    val tv_date_to: TextView = itemView.findViewById<TextView>(R.id.tv_date_to)
+    val tv_date_to: TextView = itemView.findViewById<TextView>(R.id.tv_date_to_main)
     val tvCount: TextView = itemView.findViewById<TextView>(R.id.num1)
 //        init {
 //            binding.num1.text = tvCount.text

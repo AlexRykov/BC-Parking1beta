@@ -51,4 +51,6 @@
     <string name="fragment_firm">firm</string>
     <string name="fragment_fio">FIO</string>
     <string name="fragment_about">about</string>
+    <string name="fragment_name">name</string>
+    <string name="item_count">130</string>
 </resources>

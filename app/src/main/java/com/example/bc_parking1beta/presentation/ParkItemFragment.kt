@@ -200,7 +200,10 @@ class ParkItemFragment : Fragment() {
                 etFirm.text?.toString(),
                 etDateFrom.text?.toString(),
                 etDateTo.text?.toString(),
-                etAbout.text?.toString()
+                etAbout.text?.toString(),
+
+//                DELETE IT !!!
+                enabled = true
             )
         }
         buttonClear.setOnClickListener {

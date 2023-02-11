@@ -24,8 +24,8 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:background="@color/black"
-            android:backgroundTint="#00C853"
-            android:text="130"
+            android:backgroundTint="@color/green_item"
+            android:text="@string/item_count"
             android:textAlignment="center"
             android:textColor="@color/white"
             android:textSize="12sp" />
@@ -37,12 +37,14 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/tv_date_to"
+                android:id="@+id/tv_date_to_main"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="@string/date_to"
+                android:textAlignment="center"
                 android:textSize="12sp"
+                android:textStyle="bold"
                 android:visibility="visible" />
 
         </LinearLayout>
@@ -58,28 +60,29 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="date" />
+                android:text="@string/fragment_date_from" />
 
             <TextView
                 android:id="@+id/tv_about"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="about" />
+                android:text="@string/fragment_about"
+                android:textAlignment="center" />
 
             <TextView
                 android:id="@+id/tv_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="name" />
+                android:text="@string/fragment_name" />
 
             <TextView
                 android:id="@+id/tv_firm"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="firm" />
+                android:text="@string/fragment_firm" />
         </LinearLayout>
 
     </LinearLayout>

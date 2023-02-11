@@ -77,7 +77,8 @@ class ParkItemViewModel : ViewModel(){
         inputFirm: String?,
         inputDateFrom: String?,
         inputDateTo: String?,
-        inputAbout: String?
+        inputAbout: String?,
+        enabled: Boolean
     ) {
         val name = parseName(inputName)
         val firm = parseName(inputFirm)
@@ -93,7 +94,8 @@ class ParkItemViewModel : ViewModel(){
                     firm = firm,
                     dateFrom = dateFrom,
                     dateTo = dateTo,
-                    about = about
+                    about = about,
+                    enabled = enabled
                 )
                 editParkItemUseCase.editParkItem(item)
                 finishWork()
