@@ -13,6 +13,8 @@ import android.widget.EditText
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bc_parking.R
+import com.example.bc_parking.databinding.FragmentParkItemBinding
+import com.example.bc_parking.databinding.OutsideParking1Binding
 import com.example.bc_parking1beta.ParkItemViewModel
 import com.example.bc_parking1beta.domain.ParkItem
 //import com.example.bc_parking1beta.ParkItemViewModel
@@ -20,6 +22,9 @@ import com.google.android.material.textfield.TextInputLayout
 
 class ParkItemFragment : Fragment() {
 
+    private var _binding: FragmentParkItemBinding? = null
+    private val binding: FragmentParkItemBinding
+        get() = _binding ?: throw RuntimeException("FragmentParkItemBinding == null")
 
     private lateinit var viewModel: ParkItemViewModel
     private lateinit var onEditingFinishedListener: OnEditingFinishedListener
@@ -58,14 +63,15 @@ class ParkItemFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return layoutInflater.inflate(R.layout.fragment_park_item, container, false)
+        _binding = FragmentParkItemBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         viewModel = ViewModelProvider(this)[ParkItemViewModel::class.java]
-        initViews(view)
+        initViews()
         addTextChangeListeners()
         launchEditMode()
         observeViewModel()
@@ -113,9 +119,9 @@ class ParkItemFragment : Fragment() {
             }
             tilAbout.error = message
         }
-//        viewModel.shouldCloseScreen.observe(viewLifecycleOwner) {
-//            onEditingFinishedListener.onEditingFinished()
-//        }
+        viewModel.shouldCloseScreen.observe(viewLifecycleOwner) {
+            onEditingFinishedListener.onEditingFinished()
+        }
 
 
     }
@@ -187,11 +193,14 @@ class ParkItemFragment : Fragment() {
 
     private fun launchEditMode() {
         viewModel.getParkItem(parkItemId)
+//        Set Enabled if EtName is Busy   with <t>
+        val t : Boolean = etName.textSize < 1
         viewModel.parkItem.observe(viewLifecycleOwner) {
             etName.setText(it.name)
             etFirm.setText(it.firm)
             etDateFrom.setText(it.dateFrom)
             etDateTo.setText(it.dateTo)
+//            tvDateToMain.text = it.dateTo
             etAbout.setText(it.about)
         }
         buttonSave.setOnClickListener {
@@ -201,10 +210,9 @@ class ParkItemFragment : Fragment() {
                 etDateFrom.text?.toString(),
                 etDateTo.text?.toString(),
                 etAbout.text?.toString(),
-
-//                DELETE IT !!!
-                enabled = true
+                enabled = t
             )
+//            tvDateToMain.text?.toString()
         }
         buttonClear.setOnClickListener {
             viewModel.parkItem.observe(viewLifecycleOwner) {
@@ -212,7 +220,9 @@ class ParkItemFragment : Fragment() {
                 etFirm.setText(TEXT)
                 etDateFrom.setText(TEXT)
                 etDateTo.setText(TEXT)
+//                tvDateToMain.text = "CLEAR"
             }
+//            tvDateToMain.text?.toString()
         }
     }
 
@@ -247,19 +257,21 @@ class ParkItemFragment : Fragment() {
         }
     }
 
-    private fun initViews(view: View) {
-        tilName = view.findViewById(R.id.til_name)
-        tilFirm = view.findViewById(R.id.til_firm)
-        tilAbout = view.findViewById(R.id.til_about)
-        tilDateFrom = view.findViewById(R.id.til_date_from)
-        tilDateTo = view.findViewById(R.id.til_date_to)
-        etName = view.findViewById(R.id.et_name)
-        etFirm = view.findViewById(R.id.et_firm)
-        etDateFrom = view.findViewById(R.id.et_date_from)
-        etDateTo = view.findViewById(R.id.et_date_to)
-        etAbout = view.findViewById(R.id.et_about)
-        buttonSave = view.findViewById(R.id.save_button)
-        buttonClear = view.findViewById(R.id.clear_button)
+    private fun initViews() {
+        with(binding){
+            tilName
+            tilFirm
+            tilAbout
+            tilDateFrom
+            tilDateTo
+            etName
+            etFirm
+            etDateFrom
+            etDateTo
+            etAbout
+            buttonSave
+            buttonClear
+        }
     }
 
     interface OnEditingFinishedListener {

@@ -21,8 +21,8 @@
             android:id="@+id/rvOutsideParking1_1"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#C8E6C9"
             android:layout_weight="1"
+            android:background="#B3E5FC"
             android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:listitem="@layout/parent_item">
@@ -41,8 +41,8 @@
             android:id="@+id/rvOutsideParking1_2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#C8E6C9"
             android:layout_weight="1"
+            android:background="#B3E5FC"
             android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
@@ -50,13 +50,12 @@
             tools:listitem="@layout/parent_item" />
 
 
-
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvOutsideParking1_3"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#C8E6C9"
             android:layout_weight="1"
+            android:background="#B3E5FC"
             android:padding="8dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintStart_toStartOf="parent"
@@ -90,7 +89,7 @@
                 android:id="@+id/rvOutsideParking1_4"
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
-                android:background="#C8E6C9"
+                android:background="#B3E5FC"
                 android:padding="8dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
@@ -115,12 +114,12 @@
                 android:id="@+id/rvOutsideParking1_4_1"
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
-                android:background="#C8E6C9"
+                android:background="#B3E5FC"
                 android:padding="8dp"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:listitem="@layout/parent_item" >
+                tools:listitem="@layout/parent_item">
 
             </androidx.recyclerview.widget.RecyclerView>
 

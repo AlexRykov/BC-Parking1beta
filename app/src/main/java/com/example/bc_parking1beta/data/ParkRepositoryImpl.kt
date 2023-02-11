@@ -19,7 +19,7 @@ object ParkRepositoryImpl : ParkRepository {
     private var autoIncrementId = 0
 
     init {
-        for (i in 0 until 20) {
+        for (i in 0 until 13) {
             val item = ParkItem(
                 "Name $i",
                 "firm $i",

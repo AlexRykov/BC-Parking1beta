@@ -19,6 +19,7 @@ import com.example.bc_parking1beta.ItemAdapter
 import com.example.bc_parking1beta.MainViewModel
 import com.example.bc_parking1beta.domain.ParkItem
 import com.example.bc_parking1beta.presentation.ParkItemActivity
+import com.example.bc_parking1beta.presentation.ParkItemFragment
 
 class OutsideParkingFragment1 : Fragment() {
 
@@ -70,10 +71,8 @@ class OutsideParkingFragment1 : Fragment() {
 //        "Intent to ParkItemFragment"
 //            launchParkItemFragment()
             val intent = this@OutsideParkingFragment1.context?.let { it1 ->
-                ParkItemActivity.newIntentEditItem(
-                    it1, it.id)
+                ParkItemActivity.newIntentEditItem(it1, it.id)
             }
-
             startActivity(intent)
             Toast.makeText(this.requireContext(), "CLICK", Toast.LENGTH_SHORT).show()
             Log.d("PARK", it.toString())
