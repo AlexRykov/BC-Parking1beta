@@ -1,6 +1,7 @@
 package com.example.bc_parking1beta.presentation
 
 //import android.app.Fragment
+import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
 import android.text.Editable
@@ -9,7 +10,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.DatePicker
 import android.widget.EditText
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bc_parking.R
@@ -17,11 +20,14 @@ import com.example.bc_parking.databinding.FragmentParkItemBinding
 import com.example.bc_parking1beta.ParkItemViewModel
 import com.example.bc_parking1beta.domain.ParkItem
 import com.google.android.material.textfield.TextInputLayout
+import java.text.DateFormat
+import java.util.*
 
 class ParkItemFragment(
     private var screenMode:String = MODE_UNKNOWN,
     private var parkItemId:Int = ParkItem.UNDEFINED_ID
-) : Fragment() {
+) : Fragment(), DatePickerDialog.OnDateSetListener {
+
 
     private var _binding: FragmentParkItemBinding? = null
     private val binding: FragmentParkItemBinding
@@ -189,6 +195,10 @@ class ParkItemFragment(
     }
 
     private fun launchEditMode() {
+        val c :Calendar = Calendar.getInstance()
+        val year = c.get(Calendar.YEAR)
+        val month = c.get(Calendar.MONTH)
+        val day = c.get(Calendar.DAY_OF_MONTH)
         viewModel.getParkItem(parkItemId)
 //        Set Enabled if EtName is Busy   with <t>
         val t : Boolean = etName.textSize < 1
@@ -196,7 +206,16 @@ class ParkItemFragment(
             etName.setText(it.name)
             etFirm.setText(it.firm)
             etDateFrom.setText(it.dateFrom)
-            etDateTo.setText(it.dateTo)
+//    ADD CALENDAR Listener !!!
+            etDateTo.setOnClickListener{
+                val datePicker = DatePickerDialog(
+                    requireContext(),
+                    { _, mYear, mMonth, mDay ->
+                        etDateTo.setText("$mDay $mMonth $mYear")
+                    }, year, month, day)
+                datePicker.show()
+            }
+//            etDateTo.setText(it.dateTo)
 //            tvDateToMain.text = it.dateTo
             etAbout.setText(it.about)
         }
@@ -318,5 +337,13 @@ class ParkItemFragment(
 //                }
 //            }
 //        }
+    }
+
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        val c : Calendar = Calendar.getInstance()
+        c.set(Calendar.YEAR, year)
+        c.set(Calendar.MONTH, month)
+        c.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+        val stringOfDate = DateFormat.getDateInstance().format(c.time)
     }
 }
