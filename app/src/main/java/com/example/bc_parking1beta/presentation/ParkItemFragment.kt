@@ -1,6 +1,7 @@
 package com.example.bc_parking1beta.presentation
 
 //import android.app.Fragment
+import android.annotation.SuppressLint
 import android.app.DatePickerDialog
 import android.content.Context
 import android.os.Bundle
@@ -194,6 +195,8 @@ class ParkItemFragment(
         })
     }
 
+
+    @SuppressLint("SetTextI18n")
     private fun launchEditMode() {
         val c :Calendar = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
@@ -205,13 +208,20 @@ class ParkItemFragment(
         viewModel.parkItem.observe(viewLifecycleOwner) {
             etName.setText(it.name)
             etFirm.setText(it.firm)
-            etDateFrom.setText(it.dateFrom)
+            etDateFrom.setOnClickListener{
+                val datePicker = DatePickerDialog(
+                    requireContext(),
+                    { _, mYear, mMonth, mDay ->
+                        etDateFrom.setText("$mDay.$mMonth.$mYear")
+                    }, year, month, day)
+                datePicker.show()
+            }
 //    ADD CALENDAR Listener !!!
             etDateTo.setOnClickListener{
                 val datePicker = DatePickerDialog(
                     requireContext(),
                     { _, mYear, mMonth, mDay ->
-                        etDateTo.setText("$mDay $mMonth $mYear")
+                        etDateTo.setText("$mDay.$mMonth.$mYear")
                     }, year, month, day)
                 datePicker.show()
             }
