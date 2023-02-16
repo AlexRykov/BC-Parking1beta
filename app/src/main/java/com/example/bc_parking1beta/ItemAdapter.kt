@@ -36,9 +36,10 @@ class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback())
         viewHolder.itemView.setOnClickListener {
             onParkItemClickListener?.invoke(parkItem)
         }
+//        IT'S     OUTSIDE     ItemPark    VIEW     !  !  !
         viewHolder.tv_name.text =parkItem.name
         viewHolder.tv_date_to.text =parkItem.dateTo
-        viewHolder.tvCount.text = parkItem.about
+        viewHolder.tvCount.text = parkItem.id.toString()
 
     }
 

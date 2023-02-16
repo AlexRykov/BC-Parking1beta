@@ -74,30 +74,18 @@ class OutsideParkingFragment1 : Fragment() {
                 ParkItemActivity.newIntentEditItem(it1, it.id)
             }
             startActivity(intent)
-            Toast.makeText(this.requireContext(), "CLICK", Toast.LENGTH_SHORT).show()
-            Log.d("PARK", it.toString())
         }
-
-//   SETUP MAX POOL SIZE of elements in rv. Must be Deleted    !!!
-
-        rvOutside1List.recycledViewPool.setMaxRecycledViews(
-            ItemAdapter.VIEW_TYPE_ENABLED,
-            ItemAdapter.MAX_POOL_SIZE
-        )
-        rvOutside1List.recycledViewPool.setMaxRecycledViews(
-            ItemAdapter.VIEW_TYPE_DISABLED,
-            ItemAdapter.MAX_POOL_SIZE
-        )
     }
 
 //    override fun onEditingFinished() {
-//        "TODO("Not yet implemented")  "
+//
 //    }
 
 
-//    private fun launchParkItemFragment() {
-//        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemFragment)
-//    }
+    private fun launchParkItemFragment() {
+        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemFragment)
+
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()
