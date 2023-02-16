@@ -1,5 +1,7 @@
 package com.example.bc_parking1beta
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -9,8 +11,8 @@ import com.example.bc_parking1beta.domain.AddParkItemUseCase
 import com.example.bc_parking1beta.domain.EditParkItemUseCase
 import com.example.bc_parking1beta.domain.GetParkItemUseCase
 
-class ParkItemViewModel : ViewModel(){
-    private val repository = ParkRepositoryImpl
+class ParkItemViewModel(application: Application) : AndroidViewModel(application){
+    private val repository = ParkRepositoryImpl(application)
 
     private val getParkItemUseCase = GetParkItemUseCase(repository)
     private val addParkItemUseCase = AddParkItemUseCase(repository)

@@ -50,7 +50,7 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
     private var screenMode: String = MODE_UNKNOWN
     private var parkItemId: Int = ParkItem.UNDEFINED_ID
 
-//       Lesson     61
+//       Lesson     61    Here   Get an Example of Listener
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is OnEditingFinishedListener) {
@@ -213,6 +213,7 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             etDateFrom.setOnClickListener {
                 val datePicker = DatePickerDialog(
                     requireContext(),
+                    DatePickerDialog.THEME_HOLO_LIGHT,
                     { _, mYear, mMonth, mDay ->
                         etDateFrom.setText("$mDay.$mMonth.$mYear")
                     }, year, month, day

@@ -1,13 +1,15 @@
 package com.example.bc_parking1beta
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.bc_parking1beta.data.ParkRepositoryImpl
 import com.example.bc_parking1beta.domain.*
 
-class MainViewModel : ViewModel() {
+class MainViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = ParkRepositoryImpl
+    private val repository = ParkRepositoryImpl(application)
 
     private val getParkListUseCase = GetParkListUseCase(repository)
     private val deleteParkItemUseCase = DeleteParkItemUseCase(repository)
