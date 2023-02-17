@@ -33,6 +33,9 @@ class WelcomeFragment: Fragment() {
         binding.buttonOutsidePark2.setOnClickListener {
             launchOutsideParking2Fragment()
         }
+        binding.buttonParking1stLvl.setOnClickListener {
+            launchParking1stLvlFragment()
+        }
         binding.buttonParking2ndLvl.setOnClickListener {
             launchParking2ndLvlFragment()
         }
@@ -43,6 +46,10 @@ class WelcomeFragment: Fragment() {
 
     private fun launchOutsideParking2Fragment() {
         findNavController().navigate(R.id.action_welcomeFragment_to_outsideParkingFragment2)
+    }
+
+    private fun launchParking1stLvlFragment() {
+        findNavController().navigate(R.id.action_welcomeFragment_to_parking1stLvlFragment)
     }
 
     private fun launchParking2ndLvlFragment() {

@@ -29,10 +29,12 @@ class OutsideParkingFragment1 : Fragment() {
 
     private lateinit var viewModel: MainViewModel
     private lateinit var rvOutsideParking11Adapter: ItemAdapter
+    private lateinit var rvOutsideParking12Adapter: ItemAdapter
+    private lateinit var rvOutsideParking13Adapter: ItemAdapter
 //    private lateinit var rvOutsideParking12Adapter: ItemAdapter
 //    private lateinit var rvOutsideParking13Adapter: ItemAdapter
-//    private lateinit var rvOutsideParking14Adapter: ItemAdapter
-//    private lateinit var rvOutsideParking141Adapter: ItemAdapter
+    private lateinit var rvOutsideParking14Adapter: ItemAdapter
+    private lateinit var rvOutsideParking141Adapter: ItemAdapter
 //    private var parkItemContainer: FragmentContainerView? = null
 
     override fun onCreateView(
@@ -52,13 +54,20 @@ class OutsideParkingFragment1 : Fragment() {
         viewModel = ViewModelProvider(this@OutsideParkingFragment1)[MainViewModel::class.java]
         viewModel.parkList.observe(viewLifecycleOwner) {
 //            give list of items to Adapter
-            rvOutsideParking11Adapter.submitList(it)
+
+            rvOutsideParking11Adapter.submitList(it.subList(0,13))
+            rvOutsideParking12Adapter.submitList(it.subList(13,27))
+            rvOutsideParking13Adapter.submitList(it.subList(27,41))
+            rvOutsideParking14Adapter.submitList(it.subList(41,44))
+            rvOutsideParking141Adapter.submitList(it.subList(44,46))
         }
 //          Get item position in List with fun .currentList
 //          val item = ItemAdapter.currentList[viewHolder.adapterPosition]
     }
 
     private fun setupRecyclerView() {
+//        1
+
         val rvOutside1List = binding.rvOutsideParking11
         rvOutsideParking11Adapter = ItemAdapter()
         rvOutside1List.adapter = rvOutsideParking11Adapter
@@ -68,6 +77,78 @@ class OutsideParkingFragment1 : Fragment() {
             viewModel.changeEnableState(it)
         }
         rvOutsideParking11Adapter.onParkItemClickListener = {
+//        "Intent to ParkItemFragment"
+//            launchParkItemFragment()
+            val intent = this@OutsideParkingFragment1.context?.let { it1 ->
+                ParkItemActivity.newIntentEditItem(it1, it.id)
+            }
+            startActivity(intent)
+        }
+//        2
+
+        val rvOutside12List = binding.rvOutsideParking12
+        rvOutsideParking12Adapter = ItemAdapter()
+        rvOutside12List.adapter = rvOutsideParking12Adapter
+
+//        REALISE Invoke method from Adapter HERE
+        rvOutsideParking12Adapter.onParkItemLongClickListener = {
+            viewModel.changeEnableState(it)
+        }
+        rvOutsideParking12Adapter.onParkItemClickListener = {
+//        "Intent to ParkItemFragment"
+//            launchParkItemFragment()
+            val intent = this@OutsideParkingFragment1.context?.let { it1 ->
+                ParkItemActivity.newIntentEditItem(it1, it.id)
+            }
+            startActivity(intent)
+        }
+        //        3
+
+        val rvOutside13List = binding.rvOutsideParking13
+        rvOutsideParking13Adapter = ItemAdapter()
+        rvOutside13List.adapter = rvOutsideParking13Adapter
+
+//        REALISE Invoke method from Adapter HERE
+        rvOutsideParking13Adapter.onParkItemLongClickListener = {
+            viewModel.changeEnableState(it)
+        }
+        rvOutsideParking13Adapter.onParkItemClickListener = {
+//        "Intent to ParkItemFragment"
+//            launchParkItemFragment()
+            val intent = this@OutsideParkingFragment1.context?.let { it1 ->
+                ParkItemActivity.newIntentEditItem(it1, it.id)
+            }
+            startActivity(intent)
+        }
+        //        4
+
+        val rvOutside14List = binding.rvOutsideParking14
+        rvOutsideParking14Adapter = ItemAdapter()
+        rvOutside14List.adapter = rvOutsideParking14Adapter
+
+//        REALISE Invoke method from Adapter HERE
+        rvOutsideParking14Adapter.onParkItemLongClickListener = {
+            viewModel.changeEnableState(it)
+        }
+        rvOutsideParking14Adapter.onParkItemClickListener = {
+//        "Intent to ParkItemFragment"
+//            launchParkItemFragment()
+            val intent = this@OutsideParkingFragment1.context?.let { it1 ->
+                ParkItemActivity.newIntentEditItem(it1, it.id)
+            }
+            startActivity(intent)
+        }
+        //        41
+
+        val rvOutside141List = binding.rvOutsideParking141
+        rvOutsideParking141Adapter = ItemAdapter()
+        rvOutside141List.adapter = rvOutsideParking141Adapter
+
+//        REALISE Invoke method from Adapter HERE
+        rvOutsideParking141Adapter.onParkItemLongClickListener = {
+            viewModel.changeEnableState(it)
+        }
+        rvOutsideParking141Adapter.onParkItemClickListener = {
 //        "Intent to ParkItemFragment"
 //            launchParkItemFragment()
             val intent = this@OutsideParkingFragment1.context?.let { it1 ->

@@ -16,10 +16,10 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tvTitle2ndLvl"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:text="PARKING 2LVL"
+            android:text="@string/text_title_parking_2lvl"
             android:textAlignment="center"
             android:textColor="#9FA8DA"
             android:textSize="24sp" />

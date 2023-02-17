@@ -18,6 +18,9 @@
         <action
             android:id="@+id/action_welcomeFragment_to_parking2ndLvlFragment"
             app:destination="@id/parking2ndLvlFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_parking1stLvlFragment"
+            app:destination="@id/parking1stLvlFragment" />
     </fragment>
     <fragment
         android:id="@+id/outsideParkingFragment1"
@@ -47,4 +50,8 @@
         android:name="com.example.bc_parking1beta.presentation.ParkItemActivity"
         android:label="activity_park_item"
         tools:layout="@layout/activity_park_item" />
+    <fragment
+        android:id="@+id/parking1stLvlFragment"
+        android:name="com.example.bc_parking1beta.fragments.Parking1stLvlFragment"
+        android:label="Parking1stLvlFragment" />
 </navigation>

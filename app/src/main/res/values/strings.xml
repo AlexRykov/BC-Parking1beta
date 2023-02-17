@@ -53,4 +53,7 @@
     <string name="fragment_about">about</string>
     <string name="fragment_name">name</string>
     <string name="item_count">130</string>
+    <string name="text_title_parking_2lvl">PARKING 2LVL</string>
+    <string name="text_title_parking_1lvl">PARKING 1LVL</string>
+    <string name="text_title_outside2">ENTER/EXIT Parking BACKyard</string>
 </resources>
