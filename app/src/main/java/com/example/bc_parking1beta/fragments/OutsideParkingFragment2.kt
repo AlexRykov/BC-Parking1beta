@@ -47,13 +47,13 @@ class OutsideParkingFragment2 : Fragment() {
         viewModel.parkList.observe(viewLifecycleOwner) {
 //            give list of items to Adapter
 
-            rvOutsideParking211Adapter.submitList(it.subList(46,47))
-            rvOutsideParking212Adapter.submitList(it.subList(47,48))
+            rvOutsideParking211Adapter.submitList(it.subList(50,51))
+            rvOutsideParking212Adapter.submitList(it.subList(49,50))
             rvOutsideParking213Adapter.submitList(it.subList(48,49))
-            rvOutsideParking22Adapter.submitList(it.subList(49,53))
+            rvOutsideParking22Adapter.submitList(it.subList(44,48).reversed())
             rvOutsideParking231Adapter.submitList(it.subList(53,54))
-            rvOutsideParking232Adapter.submitList(it.subList(54,55))
-            rvOutsideParking233Adapter.submitList(it.subList(55,56))
+            rvOutsideParking232Adapter.submitList(it.subList(52,53))
+            rvOutsideParking233Adapter.submitList(it.subList(51,52))
         }
 //          Get item position in List with fun .currentList
 //          val item = ItemAdapter.currentList[viewHolder.adapterPosition]

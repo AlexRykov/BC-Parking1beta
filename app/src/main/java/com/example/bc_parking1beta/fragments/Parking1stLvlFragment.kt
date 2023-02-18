@@ -49,15 +49,15 @@ class Parking1stLvlFragment : Fragment() {
         viewModel.parkList.observe(viewLifecycleOwner) {
 //            give list of items to Adapter
 
-            rv1stParking11Adapter.submitList(it.subList(56,58))
-            rv1stParking21Adapter.submitList(it.subList(58,59))
-            rv1stParking22Adapter.submitList(it.subList(59,61))
-            rv1stParking23Adapter.submitList(it.subList(61,63))
-            rv1stParking31Adapter.submitList(it.subList(63,65))
-            rv1stParking32Adapter.submitList(it.subList(65,67))
-            rv1stParking41Adapter.submitList(it.subList(67,69))
-            rv1stParking51Adapter.submitList(it.subList(69,70))
-            rv1stParking52Adapter.submitList(it.subList(70,71))
+            rv1stParking11Adapter.submitList(it.subList(54,56))
+            rv1stParking21Adapter.submitList(it.subList(64,65))
+            rv1stParking22Adapter.submitList(it.subList(67,69).reversed())
+            rv1stParking23Adapter.submitList(it.subList(56,58))
+            rv1stParking31Adapter.submitList(it.subList(62,64).reversed())
+            rv1stParking32Adapter.submitList(it.subList(65,67).reversed())
+            rv1stParking41Adapter.submitList(it.subList(60,62).reversed())
+            rv1stParking51Adapter.submitList(it.subList(59,60))
+            rv1stParking52Adapter.submitList(it.subList(58,59))
         }
 //          Get item position in List with fun .currentList
 //          val item = ItemAdapter.currentList[viewHolder.adapterPosition]

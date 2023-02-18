@@ -53,19 +53,19 @@ class Parking2ndLvlFragment  : Fragment() {
         viewModel.parkList.observe(viewLifecycleOwner) {
 //            give list of items to Adapter
 
-            rv2ndParking11Adapter.submitList(it.subList(71,71))
-            rv2ndParking12Adapter.submitList(it.subList(72,73))
-            rv2ndParking13Adapter.submitList(it.subList(74,75))
-            rv2ndParking14Adapter.submitList(it.subList(76,77))
-            rv2ndParking15Adapter.submitList(it.subList(78,79))
-            rv2ndParking21Adapter.submitList(it.subList(80,81))
-            rv2ndParking22Adapter.submitList(it.subList(82,83))
-            rv2ndParking23Adapter.submitList(it.subList(84,85))
-            rv2ndParking31Adapter.submitList(it.subList(86,87))
-            rv2ndParking41Adapter.submitList(it.subList(88,89))
-            rv2ndParking42Adapter.submitList(it.subList(90,90))
-            rv2ndParking43Adapter.submitList(it.subList(91,92))
-            rv2ndParking44Adapter.submitList(it.subList(93,93))
+            rv2ndParking11Adapter.submitList(it.subList(89,90))
+            rv2ndParking12Adapter.submitList(it.subList(87,89))
+            rv2ndParking13Adapter.submitList(it.subList(85,87))
+            rv2ndParking14Adapter.submitList(it.subList(83,85))
+            rv2ndParking15Adapter.submitList(it.subList(81,83))
+            rv2ndParking21Adapter.submitList(it.subList(69,71))
+            rv2ndParking22Adapter.submitList(it.subList(90,92))
+            rv2ndParking23Adapter.submitList(it.subList(79,81))
+            rv2ndParking31Adapter.submitList(it.subList(71,73))
+            rv2ndParking41Adapter.submitList(it.subList(73,75))
+            rv2ndParking42Adapter.submitList(it.subList(75,76))
+            rv2ndParking43Adapter.submitList(it.subList(76,78))
+            rv2ndParking44Adapter.submitList(it.subList(78,79))
         }
 //          Get item position in List with fun .currentList
 //          val item = ItemAdapter.currentList[viewHolder.adapterPosition]

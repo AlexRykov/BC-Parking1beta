@@ -253,6 +253,7 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                 etFirm.setText(TEXT)
                 etDateFrom.setText(TEXT)
                 etDateTo.setText(TEXT)
+                etAbout.setText(TEXT)
             }
         }
     }
