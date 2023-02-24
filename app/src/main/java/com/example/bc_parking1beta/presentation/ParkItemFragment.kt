@@ -12,7 +12,6 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.DatePicker
 import android.widget.EditText
-import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.bc_parking.R
@@ -20,7 +19,6 @@ import com.example.bc_parking.databinding.FragmentParkItemBinding
 import com.example.bc_parking1beta.ParkItemViewModel
 import com.example.bc_parking1beta.domain.ParkItem
 import com.google.android.material.textfield.TextInputLayout
-import java.text.DateFormat
 import java.util.*
 
 class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
@@ -347,6 +345,6 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         c.set(Calendar.YEAR, year)
         c.set(Calendar.MONTH, month)
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        val stringOfDate = DateFormat.getDateInstance().format(c.time)
+//        val stringOfDate = DateFormat.getDateInstance().format(c.time)
     }
 }

@@ -2,7 +2,6 @@ package com.example.bc_parking1beta.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.bc_parking1beta.domain.ParkItem
 
 @Entity(tableName = "park_items")
 data class ParkItemDbModel(

@@ -58,7 +58,6 @@ class ParkItemActivity : AppCompatActivity(), ParkItemFragment.OnEditingFinished
     }
 
     companion object {
-        private const val TEXT = "clear"
         private const val SCREEN_MODE = "extra_mode"
         private const val PARK_ITEM_ID = "extra_park_item_Id"
         private const val MODE_EDIT = "mode_edit"

@@ -2,12 +2,9 @@ package com.example.bc_parking1beta.data
 
 import android.app.Application
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MediatorLiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.bc_parking1beta.domain.ParkItem
 import com.example.bc_parking1beta.domain.ParkRepository
-import kotlin.random.Random
 
 class ParkRepositoryImpl(application: Application) : ParkRepository {
 
@@ -22,7 +19,7 @@ class ParkRepositoryImpl(application: Application) : ParkRepository {
 ////    before it was ->
 ////    private val parkList = mutableListOf<ParkItem>()
 //
-    private var autoIncrementId = 0
+//    private var autoIncrementId = 0
 
 //    init {
 //        val a = listOf(

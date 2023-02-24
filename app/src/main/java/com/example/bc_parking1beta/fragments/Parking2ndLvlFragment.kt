@@ -6,9 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
-import com.example.bc_parking.R
-import com.example.bc_parking.databinding.FragmentParking1stLvlBinding
 import com.example.bc_parking.databinding.FragmentParking2ndLvlBinding
 import com.example.bc_parking1beta.ItemAdapter
 import com.example.bc_parking1beta.MainViewModel
@@ -314,10 +311,10 @@ class Parking2ndLvlFragment  : Fragment() {
 //    }
 
 
-    private fun launchParkItemFragment() {
-        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemFragment)
-
-    }
+//    private fun launchParkItemFragment() {
+//        findNavController().navigate(R.id.action_outsideParkingFragment1_to_parkItemFragment)
+//
+//    }
 
     override fun onDestroyView() {
         super.onDestroyView()

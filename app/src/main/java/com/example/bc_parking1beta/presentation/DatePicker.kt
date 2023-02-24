@@ -5,8 +5,6 @@ import android.app.Dialog
 import android.os.Bundle
 import android.widget.DatePicker
 import androidx.fragment.app.DialogFragment
-import com.google.android.material.datepicker.MaterialDatePicker
-import java.text.DateFormat
 import java.util.Calendar
 
 class DatePicker: DialogFragment(), DatePickerDialog.OnDateSetListener {
@@ -23,7 +21,7 @@ class DatePicker: DialogFragment(), DatePickerDialog.OnDateSetListener {
         c.set(Calendar.YEAR, year)
         c.set(Calendar.MONTH, month)
         c.set(Calendar.DAY_OF_MONTH, dayOfMonth)
-        val stringOfDate = DateFormat.getDateInstance().format(c.time)
+//        val stringOfDate = DateFormat.getDateInstance().format(c.time)
 
     }
 
