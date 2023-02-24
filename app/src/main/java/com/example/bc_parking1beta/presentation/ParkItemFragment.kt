@@ -213,7 +213,7 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                     requireContext(),
                     DatePickerDialog.THEME_HOLO_LIGHT,
                     { _, mYear, mMonth, mDay ->
-                        etDateFrom.setText("$mDay.$mMonth.$mYear")
+                        etDateFrom.setText("$mDay.${mMonth+1}.$mYear")
                     }, year, month, day
                 )
                 datePicker.show()
@@ -224,7 +224,7 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
                 val datePicker = DatePickerDialog(
                     requireContext(),
                     { _, mYear, mMonth, mDay ->
-                        etDateTo.setText("$mDay.$mMonth.$mYear")
+                        etDateTo.setText("$mDay.${mMonth+1}.$mYear")
                     }, year, month, day
                 )
                 datePicker.show()

@@ -51,6 +51,7 @@ class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback())
                 val year1 = parkItem.dateTo.substring(4,8)
                 val month = current.substring(2,3)
                 val month1 = parkItem.dateTo.substring(2,3)
+                viewHolder.tv_name.text = "$year $year1 $month $month1"
                 (year == year1 && month == month1)
             } else {
                 false
