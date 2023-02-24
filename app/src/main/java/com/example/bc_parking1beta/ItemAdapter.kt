@@ -1,14 +1,23 @@
 package com.example.bc_parking1beta
 
 import android.annotation.SuppressLint
+import android.graphics.Color
+import android.icu.util.Calendar
+import android.icu.util.LocaleData
+import android.os.Build
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.annotation.RequiresApi
 import androidx.core.graphics.green
 import androidx.core.graphics.red
 import androidx.recyclerview.widget.ListAdapter
 import com.example.bc_parking.R
 import com.example.bc_parking1beta.domain.ParkItem
 import com.example.bc_parking1beta.presentation.ItemViewHolder
+import java.sql.Time
+import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.LocalDateTime
 
 class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback()){
 
@@ -33,6 +42,21 @@ class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback())
     override fun onBindViewHolder(viewHolder: ItemViewHolder, position: Int) {
         val parkItem = getItem(position)
 
+        fun subtractCurrentDate(): Boolean {
+            val time = Calendar.getInstance().time
+            val formatter = SimpleDateFormat("dd.M.yyyy")
+            val current = formatter.format(time)
+            return if (parkItem.dateTo.length > 5){
+                val year = current.substring(4,8)
+                val year1 = parkItem.dateTo.substring(4,8)
+                val month = current.substring(2,3)
+                val month1 = parkItem.dateTo.substring(2,3)
+                (year == year1 && month == month1)
+            } else {
+                false
+            }
+        }
+
 //         CREATE invoke method that can be Realised in Fragment in SetupRecyclerView
         viewHolder.itemView.setOnLongClickListener {
             onParkItemLongClickListener?.invoke(parkItem)
@@ -45,8 +69,20 @@ class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback())
         viewHolder.tv_name.text =parkItem.name
         viewHolder.tv_date_to.text =parkItem.dateTo
         viewHolder.tvCount.text = parkItem.id.toString()
+//        parkItem.enabled = getItemViewType(position) == VIEW_TYPE_ENABLED
+//        if (parkItem.enabled) {
+//            viewHolder.tv_date_to.setTextColor(Color.BLUE)
+//        } else {
+//            viewHolder.tv_date_to.setTextColor(Color.CYAN)
+//        }
+        if (subtractCurrentDate()) {
+            viewHolder.tv_date_to.setTextColor(Color.RED)
+        } else {
+            viewHolder.tv_date_to.setTextColor(Color.GRAY)
+        }
 
     }
+
 
     override fun getItemViewType(position: Int): Int {
         val item = getItem(position)
