@@ -1,7 +1,10 @@
 package com.example.bc_parking1beta
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.graphics.green
+import androidx.core.graphics.red
 import androidx.recyclerview.widget.ListAdapter
 import com.example.bc_parking.R
 import com.example.bc_parking1beta.domain.ParkItem
@@ -25,6 +28,8 @@ class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback())
 
     }
 
+
+    @SuppressLint("ResourceAsColor")
     override fun onBindViewHolder(viewHolder: ItemViewHolder, position: Int) {
         val parkItem = getItem(position)
 
@@ -45,7 +50,7 @@ class ItemAdapter: ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback())
 
     override fun getItemViewType(position: Int): Int {
         val item = getItem(position)
-        return if (item.enabled){
+        return if (item.dateTo == "clear"){
             VIEW_TYPE_ENABLED
         } else{
             VIEW_TYPE_DISABLED

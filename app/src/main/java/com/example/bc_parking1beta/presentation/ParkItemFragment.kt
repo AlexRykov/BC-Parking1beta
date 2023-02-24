@@ -205,8 +205,6 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
         val month = c.get(Calendar.MONTH)
         val day = c.get(Calendar.DAY_OF_MONTH)
         viewModel.getParkItem(parkItemId)
-//        Set Enabled if EtName is Busy   with <t>
-        val t: Boolean = etName.textSize < 1
         viewModel.parkItem.observe(viewLifecycleOwner) {
             etName.setText(it.name)
             etFirm.setText(it.firm)
@@ -236,14 +234,15 @@ class ParkItemFragment : Fragment(), DatePickerDialog.OnDateSetListener {
             etAbout.setText(it.about)
         }
         buttonSave.setOnClickListener {
+
+
 //            IT'S   NEED   TO    SAVE   DATA    IN    DATA BASE
             viewModel.editParkItem(
                 etName.text?.toString(),
                 etFirm.text?.toString(),
                 etDateFrom.text?.toString(),
                 etDateTo.text?.toString(),
-                etAbout.text?.toString(),
-                enabled = t
+                etAbout.text?.toString()
             )
 //            tvDateToMain.text?.toString()
         }

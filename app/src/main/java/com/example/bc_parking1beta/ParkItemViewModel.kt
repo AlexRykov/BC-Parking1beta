@@ -79,8 +79,7 @@ class ParkItemViewModel(application: Application) : AndroidViewModel(application
         inputFirm: String?,
         inputDateFrom: String?,
         inputDateTo: String?,
-        inputAbout: String?,
-        enabled: Boolean
+        inputAbout: String?
     ) {
         val name = parseName(inputName)
         val firm = parseName(inputFirm)
@@ -96,8 +95,7 @@ class ParkItemViewModel(application: Application) : AndroidViewModel(application
                     firm = firm,
                     dateFrom = dateFrom,
                     dateTo = dateTo,
-                    about = about,
-                    enabled = enabled
+                    about = about
                 )
                 editParkItemUseCase.editParkItem(item)
                 finishWork()
