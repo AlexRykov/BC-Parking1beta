@@ -77,6 +77,7 @@ class ItemAdapter : ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback()
 //            viewHolder.tv_date_to.setTextColor(Color.CYAN)
 //        }
         if (subtractCurrentDate()) {
+            viewHolder.tv_date_to.setBackgroundColor(Color.LTGRAY)
             viewHolder.tv_date_to.setTextColor(Color.RED)
         } else {
             viewHolder.tv_date_to.setTextColor(Color.GRAY)
