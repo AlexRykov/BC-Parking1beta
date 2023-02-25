@@ -64,7 +64,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
@@ -81,7 +80,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
@@ -97,7 +95,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
@@ -113,7 +110,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
             </TableRow>
@@ -129,7 +125,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
@@ -145,7 +140,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
@@ -172,7 +166,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
@@ -218,7 +211,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
@@ -228,7 +220,6 @@
                     android:layout_height="150dp"
                     android:layout_weight="1"
                     android:background="@drawable/greysquare2"
-                    android:padding="8dp"
                     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                     tools:listitem="@layout/parent_item" />
 
