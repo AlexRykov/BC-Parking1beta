@@ -52,7 +52,7 @@ class ItemAdapter : ListAdapter<ParkItem, ItemViewHolder>(ParkItemDiffCallback()
                     else -> parkItem.dateTo.substring(4, 5)
                 }
                 Log.d("subtractCurrentDate", "$year $year1 $month $month1")
-                (year == year1 && month == month1)||(year > year1)
+                (year == year1 && month == month1) || (year == year1 && (month1.toInt() - month.toInt() == 1)) || (year > year1)
             } else {
                 false
             }
