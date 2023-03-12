@@ -10,6 +10,10 @@ import com.example.bc_parking1beta.data.ParkRepositoryImpl
 import com.example.bc_parking1beta.domain.AddParkItemUseCase
 import com.example.bc_parking1beta.domain.EditParkItemUseCase
 import com.example.bc_parking1beta.domain.GetParkItemUseCase
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.cancel
+import kotlinx.coroutines.launch
 
 class ParkItemViewModel(application: Application) : AndroidViewModel(application){
     private val repository = ParkRepositoryImpl(application)
@@ -17,6 +21,8 @@ class ParkItemViewModel(application: Application) : AndroidViewModel(application
     private val getParkItemUseCase = GetParkItemUseCase(repository)
     private val addParkItemUseCase = AddParkItemUseCase(repository)
     private val editParkItemUseCase = EditParkItemUseCase(repository)
+
+    private val scope = CoroutineScope(Dispatchers.Main)
 
     private val _errorInputName = MutableLiveData<Boolean>()
     val errorInputName: LiveData<Boolean>
@@ -47,8 +53,10 @@ class ParkItemViewModel(application: Application) : AndroidViewModel(application
         get() = _shouldCloseScreen
 
     fun getParkItem(parkItemId: Int) {
-        val item = getParkItemUseCase.getParkItem(parkItemId)
-        _parkItem.value = item
+        scope.launch {
+            val item = getParkItemUseCase.getParkItem(parkItemId)
+            _parkItem.value = item
+        }
     }
 
     fun addParkItem(
@@ -68,10 +76,18 @@ class ParkItemViewModel(application: Application) : AndroidViewModel(application
 
         val fieldsValid = validateInput(name, firm, dateFrom, dateTo, about)
         if (fieldsValid) {
-            val parkItem = ParkItem(name, firm, dateFrom, dateTo, about, enabled)
-            addParkItemUseCase.addParkItem(parkItem)
-            finishWork()
+            scope.launch {
+                val parkItem = ParkItem(name, firm, dateFrom, dateTo, about, enabled)
+                addParkItemUseCase.addParkItem(parkItem)
+                finishWork()
+            }
+
         }
+    }
+
+    override fun onCleared() {
+        super.onCleared()
+        scope.cancel()
     }
 
     fun editParkItem(
@@ -90,15 +106,17 @@ class ParkItemViewModel(application: Application) : AndroidViewModel(application
         val fieldsValid = validateInput(name, firm, dateFrom, dateTo, about)
         if (fieldsValid) {
             _parkItem.value?.let {
-                val item = it.copy(
-                    name = name,
-                    firm = firm,
-                    dateFrom = dateFrom,
-                    dateTo = dateTo,
-                    about = about
-                )
-                editParkItemUseCase.editParkItem(item)
-                finishWork()
+                scope.launch {
+                    val item = it.copy(
+                        name = name,
+                        firm = firm,
+                        dateFrom = dateFrom,
+                        dateTo = dateTo,
+                        about = about
+                    )
+                    editParkItemUseCase.editParkItem(item)
+                    finishWork()
+                }
             }
         }
     }

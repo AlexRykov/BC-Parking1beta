@@ -4,13 +4,13 @@ import androidx.lifecycle.LiveData
 
 interface ParkRepository {
 
-        fun editParkItem(parkItem: ParkItem)
+    suspend fun editParkItem(parkItem: ParkItem)
 
-        fun addParkItem(parkItem: ParkItem)
+    suspend fun addParkItem(parkItem: ParkItem)
 
-        fun deleteParkItem(parkItem: ParkItem)
+    suspend fun deleteParkItem(parkItem: ParkItem)
 
-        fun getParkItem(parkItemId: Int): ParkItem
+    suspend fun getParkItem(parkItemId: Int): ParkItem
 
-        fun getParkList(): LiveData<List<ParkItem>>
+    fun getParkList(): LiveData<List<ParkItem>>
 }

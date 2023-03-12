@@ -13,11 +13,11 @@ interface ParkListDao {
     fun getParkList(): LiveData<List<ParkItemDbModel>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun addParkItem(parkItemDbModel: ParkItemDbModel)
+    suspend fun addParkItem(parkItemDbModel: ParkItemDbModel)
 
     @Query("DELETE FROM park_items WHERE id=:parkItemId")
-    fun deleteParkItem(parkItemId: Int)
+    suspend fun deleteParkItem(parkItemId: Int)
 
     @Query("SELECT * FROM park_items WHERE id=:parkItemId LIMIT 1")
-    fun getParkItem(parkItemId: Int): ParkItemDbModel
+    suspend fun getParkItem(parkItemId: Int): ParkItemDbModel
 }
