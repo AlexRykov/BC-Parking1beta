@@ -15,6 +15,9 @@ interface ParkListDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addParkItem(parkItemDbModel: ParkItemDbModel)
 
+//    @Insert()
+//    suspend fun editParkItem(parkItemDbModel: ParkItemDbModel)
+
     @Query("DELETE FROM park_items WHERE id=:parkItemId")
     suspend fun deleteParkItem(parkItemId: Int)
 

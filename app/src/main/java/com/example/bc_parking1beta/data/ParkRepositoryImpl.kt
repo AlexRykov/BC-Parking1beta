@@ -39,17 +39,21 @@ class ParkRepositoryImpl(application: Application) : ParkRepository {
                 )
         for (i in a) {
             scope.launch {
-                parkListDao.addParkItem(
-                    parkItemDbModel = ParkItemDbModel(
-                        id = i.toInt(),
-                        "$i",
-                        "$i",
-                        "$i",
-                        "$i",
-                        "$i",
-                        false
+
+                if (parkListDao.getParkItem(i.toInt()).id == null) {
+                    parkListDao.addParkItem(
+                        parkItemDbModel = ParkItemDbModel(
+                            id = i.toInt(),
+                            "$i",
+                            "$i",
+                            "$i",
+                            "$i",
+                            "$i",
+                            false
+                        )
                     )
-                )
+                }
+
             }
         }
 //            parkListDao.deleteParkItem(i)
